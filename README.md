@@ -3,11 +3,11 @@ Linear regression model performed on Boston housing data. Specificly focusing on
 
 The purpose of this project is to explore the use of linear regression. Here a gradient approach is used.
 ## Objective
-Here I only find the gradient with respect to E(w)
+Here I only find the gradient with respect to `w`. The Mean Squared Error (MSQ) is used as the optimization function.
 ```
 E(w) = sum_i = 1 ... n (yi-wxi)^2 = (y-Xw)^T(y-Xw)
 ```
-The derivative of the objective wit hrespect to the variable `w` is 
+The derivative of the objective with hrespect to the variable `w` is 
 ```
 w = (X^TX)^-1X^Ty
 ```
