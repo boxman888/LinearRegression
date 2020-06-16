@@ -1,6 +1,17 @@
 # LinearRegression
 Linear regression model performed on Boston housing data. Specificly focusing on housing values. The data here was taken from StatLib library and was composed by Harrison, D. and Rubinfeld, D.L. in 'Hedonic prices and the demand for clean air', J. Environ. Economics & Management, vol.5, 81-102, 1978. The dimension predicted in this code is the median value of owner-occupied homes in $1000's
 
+The purpose of this project is to explore the use of linear regression. Here a gradient approach is used.
+## Objective
+Here I only find the gradient with respect to E(w)
+<!—e(w) = \sum_{i=1}^{n}(yi-wxi)^2 = (y-Xw)^T(y-Xw)
+
+The derivative of the objective wit hrespect to the variable `w` is 
+
+<!- w = (X^TX)^-1X^Ty -->
+
+![](https://donsoft.io/deep-learning-with-rnns/images/gradient_descent_cropped.gif)
+
 ## Setting Up
 There is one external library needed before executing this source code. The Eigen library located at [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 
