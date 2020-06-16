@@ -4,7 +4,7 @@ Linear regression model performed on Boston housing data. Specificly focusing on
 The purpose of this project is to explore the use of linear regression. Here a gradient approach is used.
 ## Objective
 Here I only find the gradient with respect to E(w)
-<!—e(w) = \sum_{i=1}^{n}(yi-wxi)^2 = (y-Xw)^T(y-Xw)
+<!--e(w) = \sum_{i=1}^{n}(yi-wxi)^2 = (y-Xw)^T(y-Xw)-->
 
 The derivative of the objective wit hrespect to the variable `w` is 
 
