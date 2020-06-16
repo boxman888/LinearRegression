@@ -16,3 +16,6 @@ Once the path to eigen has been connected to the make file. Simply run the make 
 ```
 foo@m1$ make
 ```
+
+## Math used
+See this document for a more indepth view of the Matrix math use here [Simple Linear Regression in Matrix Format](https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/13/lecture-13.pdf)

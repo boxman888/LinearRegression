@@ -11,19 +11,20 @@ void loadData(Eigen::MatrixXf &X, Eigen::VectorXf &Y, std::ifstream &fp){
     while (fp >> data){
         // Again this could be put into an array.
         // See HousingData.h for why it is currently structered this way.
-        X(r,0) = std::stof(data.zn, NULL);
+        X(r,0) = 1; // Bias value.
         X(r,1) = std::stof(data.zn, NULL);
-        X(r,2) = std::stof(data.indus, NULL);
-        X(r,3) = std::stof(data.chas, NULL);
-        X(r,4) = std::stof(data.nox, NULL);
-        X(r,5) = std::stof(data.rm, NULL);
-        X(r,6) = std::stof(data.age, NULL);
-        X(r,7) = std::stof(data.dis, NULL);
-        X(r,8) = std::stof(data.rad, NULL);
-        X(r,9) = std::stof(data.tax, NULL);
-        X(r,10) = std::stof(data.ptratio, NULL);
-        X(r,11) = std::stof(data.B, NULL);
-        X(r,12) = std::stof(data.lstat, NULL);
+        X(r,2) = std::stof(data.zn, NULL);
+        X(r,3) = std::stof(data.indus, NULL);
+        X(r,4) = std::stof(data.chas, NULL);
+        X(r,5) = std::stof(data.nox, NULL);
+        X(r,6) = std::stof(data.rm, NULL);
+        X(r,7) = std::stof(data.age, NULL);
+        X(r,8) = std::stof(data.dis, NULL);
+        X(r,9) = std::stof(data.rad, NULL);
+        X(r,10) = std::stof(data.tax, NULL);
+        X(r,11) = std::stof(data.ptratio, NULL);
+        X(r,12) = std::stof(data.B, NULL);
+        X(r,13) = std::stof(data.lstat, NULL);
 
         Y(r) = std::stof(data.medv, NULL); // Values of interest.
         r++;
@@ -83,8 +84,8 @@ int main()
     std::ifstream fp_train("./data/housing_train.csv");
     std::ifstream fp_test("./data/housing_test.csv");
 
-    Eigen::MatrixXf X(getFileRowCount(fp_train), COL_SIZE);
-    Eigen::MatrixXf X_test(getFileRowCount(fp_test), COL_SIZE);
+    Eigen::MatrixXf X(getFileRowCount(fp_train), COL_SIZE+1);
+    Eigen::MatrixXf X_test(getFileRowCount(fp_test), COL_SIZE+1);
     
     Eigen::VectorXf Y( X.rows() );
     Eigen::VectorXf Y_test( X_test.rows() );
