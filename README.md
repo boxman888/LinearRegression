@@ -5,11 +5,11 @@ The purpose of this project is to explore the use of linear regression. Here a g
 ## Objective
 Here I only find the gradient with respect to `w`. The Mean Squared Error (MSQ) is used as the optimization function.
 ```
-E(w) = sum_i = 1 ... n (yi-wxi)^2 = (y-Xw)^T(y-Xw)
+E(w) = sum_i = 1 ... n (y_i-wx_i)^2 = (y-Xw)^T(y-Xw)
 ```
-The derivative of the objective with hrespect to the variable `w` is 
+The derivative of the objective with respect to the variable `w` is 
 ```
-w = (X^TX)^-1X^Ty
+w = (X^T*X)^-1X^T*y
 ```
 ![](https://donsoft.io/deep-learning-with-rnns/images/gradient_descent_cropped.gif)
 
