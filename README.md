@@ -31,18 +31,16 @@ Download the latest Eigen library and unpack it in the cloned repository. Add th
 ## For Visual Studio Users
 You can add the path of eigen to Configuration Properties -> VC++ Directories -> Include Directories
 
-### Example
+### Example path setup for Linux/Mac users
 ```
 CXXFLAGS = -std=c++11 -Wall -fpic -O2 -I ./eigen/
 ```
 
-## Running
+## Running for Linux/Mac users
 Once the path to eigen has been connected to the make file. Simply run the make command.
 ```
 foo@m1$ make
 ```
-
-
 
 ## Math used
 See this document for a more indepth view of the Matrix math use here [Simple Linear Regression in Matrix Format](https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/13/lecture-13.pdf)
