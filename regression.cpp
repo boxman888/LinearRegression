@@ -1,7 +1,7 @@
 /********************************************************************
  * Implements multivariate regression analysis in an attempt to learn
  * the weight/hypothesis coefficients for a system of eqations.
- * Created: Jun 17 2020
+ * Created: Jun 17 2020 
  * Author: Ethan Patterson
  *******************************************************************/
 
@@ -19,7 +19,7 @@
 #define ALPHA 0.01
 #endif
 
-// Made for convinance of managing
+// Made for convinance of managing 
 // the max and min values of the data.
 struct Tuple{
     float x;
@@ -53,7 +53,7 @@ void loadData(Eigen::MatrixXf &X, Eigen::VectorXf &Y, std::ifstream &fp){
     }
 
     fp.clear();
-    fp.seekg(0, fp.beg);// Reset to head of file.
+    fp.seekg(0, fp.beg);// Reset to head of file. 
 }
 /**
  * @param fp is a file pointer.
@@ -64,7 +64,7 @@ int getFileRowCount(std::ifstream &fp){
     std::string rows;
     while (std::getline( fp, rows ))
         num_of_rows++;
-
+    
     fp.clear();
     fp.seekg(0, fp.beg); // Reset to head of file.
     return num_of_rows;
@@ -130,7 +130,7 @@ Tuple normalize(Eigen::MatrixXf &X, Eigen::VectorXf &Y){
 
     min_x = X.minCoeff(&minRow, &minCol);
     min_y = Y.minCoeff(&minRow, &minCol);
-
+    
     if (max_x < max_y)
         max = max_y;
     else
@@ -146,10 +146,10 @@ Tuple normalize(Eigen::MatrixXf &X, Eigen::VectorXf &Y){
             X(i,j) = (X(i,j) - min) / (max - min);
         }
     }
-
+    
     for (int i = 0; i < Y.rows(); i++)
         Y(i) = (Y(i) - min) / (max - min);
-
+        
     maxmin.x = max;
     maxmin.y = min;
 
@@ -167,7 +167,7 @@ void saveData(float *cost, const Tuple &maxmin, Eigen::VectorXf &W){
     std::ofstream costHistory("cost_history.csv");
 
     if (weights.is_open()){
-        for (int i = 0; i < W.size()-2; i++)
+        for (int i = 0; i < W.size()-1; i++)
             weights << W(i) << ",";
         weights << W(W.size()-1);
     }
@@ -175,7 +175,7 @@ void saveData(float *cost, const Tuple &maxmin, Eigen::VectorXf &W){
 
     if (norm.is_open()){
         norm << "max" << "," << maxmin.x << "\n";
-        norm << "min" << "," << maxmin.y << "\n";
+        norm << "min" << "," << maxmin.y << "\n";  
     }
     norm.close();
 
@@ -196,7 +196,7 @@ int main()
     // Build maxtix for traning and testing data.
     Eigen::MatrixXf X(getFileRowCount(fp_train), COL_SIZE);
     Eigen::MatrixXf X_test(getFileRowCount(fp_test), COL_SIZE);
-
+    
     // Build Vectors for target variables and weight/hypotheses.
     Eigen::VectorXf Y( X.rows() );
     Eigen::VectorXf Y_test( X_test.rows() );
@@ -213,7 +213,7 @@ int main()
 
     // Set all initial weight/hypothesis values to 0.
     W = Eigen::VectorXf::Ones( X.cols() ) * 0;
-
+    
     normalize(X, Y); // Normalize data.
     maxmin = normalize(X_test, Y_test); // Keep max and min values for future data sets.
     std::cout << "Max: " << maxmin.x << " Min: " << maxmin.y << std::endl;
