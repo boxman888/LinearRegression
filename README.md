@@ -1,7 +1,7 @@
 # LinearRegression
 Linear regression model performed on Boston housing data. Specificly focusing on housing values. The data here was taken from StatLib library and was composed by Harrison, D. and Rubinfeld, D.L. in 'Hedonic prices and the demand for clean air', J. Environ. Economics & Management, vol.5, 81-102, 1978. The dimension predicted in this code is the median value of owner-occupied homes in $1000's
 
-The purpose of this project is to explore the use of linear regression. Here a  batch gradient descent is used to minimize the cost of the Sum of Squared Errors (SSE).
+The purpose of this project is to explore the use of linear regression. Here batch gradient descent is used to minimize the cost of the Sum of Squared Errors (SSE).
 ## Objective
 Here I only find the gradient with respect to `w`. The SSE is used as the optimization function.
 ```
