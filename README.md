@@ -41,6 +41,11 @@ Once the path to eigen has been connected to the make file. Simply run the make 
 ```
 foo@m1$ make
 ```
+## Data Used
+
+In the image bleow you can see the first 14 lines of the testing data. The yellow column is the target value (Median value of owner-occupied homes in $1000's.) Please see housing_desc.txt for more infromation about each data column.
+
+![](/images/data_example.JPG)
 
 ## Math used
 See this document for a more indepth view of the Matrix math use here [Simple Linear Regression in Matrix Format](https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/13/lecture-13.pdf)
