@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+# LinearRegression
+Linear regression model performed on Boston housing data. Specificly focusing on housing values. The data here was taken from StatLib library and was composed by Harrison, D. and Rubinfeld, D.L. in 'Hedonic prices and the demand for clean air', J. Environ. Economics & Management, vol.5, 81-102, 1978. The dimension predicted in this code is the median value of owner-occupied homes in $1000's
 
-You can use the [editor on GitHub](https://github.com/boxman888/LinearRegression/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The purpose of this project is to explore the use of linear regression. Here batch gradient descent is used to minimize the cost of the Sum of Squared Errors (SSE).
+## Objective
+Here I only find the gradient with respect to `w`. The SSE is used as the optimization function.
+```
+E(w) = sum_i = 1 ... n (y_i-wx_i)^2 = (y-Xw)^T(y-Xw)
+```
+The derivative of the objective with respect to the variable `w` is 
+```
+w = (X^T*X)^-1X^T*y
+```
+![](https://blog.paperspace.com/content/images/2018/05/68747470733a2f2f707669676965722e6769746875622e696f2f6d656469612f696d672f70617274312f6772616469656e745f64657363656e742e676966.gif)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Normalization
+The data is normalized before being processed. 
+The normalization function is:
+```
+    z_i = (x_i - min) / (max - min)
+```
+Without normalizing the data, the SSE will only increase. To make predictions with the learned weight/hypothesis coefficient vector, one must normalize the data they are analyzing first. Then solve for Y_bar.  Once Y_bar is found you can unnormalize Y_bar to get the desired value.
 
-### Markdown
+![](https://miro.medium.com/max/2972/1*vXpodxSx-nslMSpOELhovg.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Setting Up
+There is one external library needed before executing this source code. The Eigen library located at [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 
-```markdown
-Syntax highlighted code block
+Download the latest Eigen library and unpack it in the cloned repository. Add the path of the Eigen library to the Makefile.
 
-# Header 1
-## Header 2
-### Header 3
+## For Visual Studio Users
+You can add the path of eigen to Configuration Properties -> VC++ Directories -> Include Directories
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Example path setup for Linux/Mac users
+```
+CXXFLAGS = -std=c++11 -Wall -fpic -O2 -I ./eigen/
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Running for Linux/Mac users
+Once the path to eigen has been connected to the make file. Simply run the make command.
+```
+foo@m1$ make
+```
+## Data Used
 
-### Jekyll Themes
+In the image bleow you can see the first 14 lines of the testing data. The yellow column is the target value (Median value of owner-occupied homes in $1000's.) Please see housing_desc.txt for more infromation about each data column.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/boxman888/LinearRegression/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![](/images/data_example.JPG)
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Math used
+See this document for a more indepth view of the Matrix math use here [Simple Linear Regression in Matrix Format](https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/13/lecture-13.pdf)
